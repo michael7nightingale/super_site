@@ -60,7 +60,7 @@ def template1Сonstruсtor(params: dict, nums_comma: str, find_mark: str, num1, 
     ...
 
 
-def template2(num1, num2, num3, ed1, ed2, ed3, degree1, degree2, degree3, find_mark, nums_comma) -> int | str:
+def template2(params: dict, num1, num2, num3, ed1, ed2, ed3, degree1, degree2, degree3, find_mark, nums_comma, lined_type) -> int | str:
     num1, num2, num3, nums_comma = float(num1), float(num2), float(num3), float(nums_comma)
     degree1, degree2, degree3 = float(degree1), float(degree2), float(degree3)
 

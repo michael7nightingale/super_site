@@ -1,10 +1,8 @@
-import sys
-# sys.path.append('D:/Progs/PycharmProjects/super_site/Site/phy/formulas/phy')
 from ..COUNTER import formula_constructor
 from .history import *
 from ..DATAMANAGER import jsonGetParams
-import django.utils.datastructures as django_data
-# from django.shortcuts import get_object_or_404
+from django.utils.datastructures import MultiValueDictKeyError
+
 
 # блок переменных
 history = []
@@ -57,16 +55,12 @@ def template1(request, linedb):
             history = form_history(result, formula_params_xyz[request.POST['find_mark']]['INFO']['literal'], history)
         # constants = {x: y['value'] for x, y in constants} if constants is not None else None
         constants = formula_params_xyz['constants'] if 'constants' in formula_params_xyz else None
-        context = {'history': history, "params": formula_params_xyz,
-                   'find': 'Искомые', 'db': linedb,
+        context = {'history': history, "params": formula_params_xyz, 'db': linedb,
                    f"result_{request.POST['find_mark']}": result, "constants": constants}
-
-        return context
-    except django_data.MultiValueDictKeyError:
+    except MultiValueDictKeyError:
         context = {'db': linedb,
                    "params": formula_params_xyz, "result_x": 0, "constants": constants}
-        return context
-
+    return context
 
 
 
