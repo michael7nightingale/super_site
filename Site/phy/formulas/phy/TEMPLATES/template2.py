@@ -10,10 +10,11 @@ def template2(request, linedb):
     formula_params_xyzw, names_for_request = jsonGetParams.get_params(name=linedb.name, args=args)
     x_name, y_name, z_name, w_name = names_for_request
     constants = formula_params_xyzw['constants'] if 'constants' in formula_params_xyzw else None
+degreex, degreey, degreez, degreew = formula_params_xyzw["x"]["degree"], 
     try:
         match request.POST['find_mark']:
             case "x":
-                result = formula_constructor.template2()
+                result = formula_constructor.template2(request.POST['y'], request.POST['z'], request.POST['w'], )
             case "y":
                 result = formula_constructor.template2()
             case "z":
