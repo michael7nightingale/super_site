@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'main/css/nicepage.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'phy/css/newton2.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'phy/js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'phy/js/nicepage.js' %}" defer=""></script>
+</head>
+
+<body>
+    <h1> {{ title }} - расчёт.</h1>
+    <form action="{% url 'newton2' %}" method="GET">
+        {% csrf_token %}
+        <input type="number" name="massa">
+        <input type="number" name="uskorenie">
+        <input type="submit" name="count">
+
+        <p></p>
+
+
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'mathem/base.html' %}
+
+
+{% block content %}
+<style>
+
+
+
+</style>
+<a class='u-btn u-btn-submit u-btn-style' href="{% url 'mechanics' %}">Механика</a>
+    <section class="u-align-center u-clearfix u-section-1 u-section" id="sec-a85c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+          <h2 class="text u-text-default u-text-1">Линейные уравнения</h2>
+        <div class="u-align-left u-container-style u-palette-1-light-3 u-tab-active u-tab-pane u-tab-pane-1" id="tab-14b7" role="tabpanel" aria-labelledby="link-tab-14b7">
+                <iframe name="iframe1" style="position: absolute; left: -9999px;"></iframe>
+                <form action="{% url 'equation_line' %}" method="POST" class="u-form"  style="padding: 30px;" >
+              {% csrf_token %}
+               <label for="nums_comma">Цифр после запятой: </label>
+                    <select title="nums_comma" name="nums_comma" id="nums_comma" >
+                   <option value="10">10</option>
+                   <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+
+                </select>
+              <div class="u-form-horizontal">
+              <input type="text" placeholder="Искомый корень: "  name="root" class="u-border-1 u-border-grey-30 u-input u-input-rectangle input2" >
+              </div>
+                    <div class="u-form-horizontal">
+                <input type="text" placeholder="Уравнение: " name="equation" class="u-border-1 u-border-grey-30 u-input u-input-rectangle input1" >
+                <label for="massa_si">Ед.измерения:</label>
+                <select name="massa_si" id="massa_si">
+                  <option value="kg">kg</option>
+                  <option value="g">g</option>
+                  <option value="t">t</option>
+                </select>
+                    </div>
+                <input type="text" hidden="hidden" name="self" value=''>
+                  <input class='u-btn u-btn-submit u-btn-style' type="submit" name="submit" >
+          </form>
+            <py-script>
+                print('hello')
+            </py-script>
+            <h4 class="u-text u-text-2">Решение: {{ result }} </h4>
+            </div>
+      </div>
+    </section>
+
+{% endblock %}

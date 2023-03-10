@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Site",
+    "\\Site\\phy",
+    "\\Site\\phy\\formulas",
+    "\\Site\\phy\\formulas\\phy",
+    "\\Site\\phy\\formulas\\phy\\COUNTER",
+    "\\Site\\phy\\formulas\\phy\\DATA",
+    "\\Site\\phy\\formulas\\phy\\DATAMANAGER",
+    "\\Site\\phy\\formulas\\phy\\TEMPLATES",
+    "\\Site\\phy\\templates"
+  ],
+  "SelectedNode": "\\Site\\mathem\\views.py",
+  "PreviewInSolutionExplorer": false
+}

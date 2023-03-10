@@ -1,0 +1,201 @@
+{% extends 'phy/base.html' %}
+{% load static %}
+
+{% block settings %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="О Сайте">
+    <meta name="description" content="">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'main/css/nicepage.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'phy/css/newton2.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'phy/js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'phy/js/nicepage.js' %}" defer=""></script>
+    <meta name="generator" content="Nicepage 4.21.5, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "/images/1642125025_1-abrakadabra-fun-p-beskonechnost-chb-vektor-1.png"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="newton2">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="ru">
+  {% endblock %}
+
+
+{% block content %}
+    <style>
+    .u-section-1{
+        background-image: url("");
+    }
+    </style>
+    <a class='u-btn u-btn-submit u-btn-style' href="{% url 'mechanics' %}">Механика</a>
+    <section class="u-align-center u-clearfix u-section-1" id="sec-a85c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+
+          <h2 class="text u-text-default u-text-1">Искомые</h2>
+          <div class="u-expanded-width u-tabs u-tabs-1">
+          <ul class="u-border-1 u-border-grey-15 u-palette-1-light-2 u-tab-list u-unstyled u-tab-list-1" role="tablist">
+            <li class="u-tab-item" role="presentation">
+              <a class="active u-active-white u-border-2 u-border-active-grey-15 u-border-hover-grey-15 u-border-no-bottom u-button-style u-tab-link u-text-active-black u-text-body-color u-text-hover-black u-tab-link-1" id="link-tab-14b7" href="#tab-14b7" role="tab" aria-controls="tab-14b7" aria-selected="true">Найти F</a>
+            </li>
+            <li class="u-tab-item" role="presentation">
+              <a class="u-active-white u-border-2 u-border-active-grey-15 u-border-hover-grey-15 u-border-no-bottom u-button-style u-tab-link u-text-active-black u-text-body-color u-text-hover-black u-tab-link-2" id="link-tab-2917" href="#tab-2917" role="tab" aria-controls="tab-2917" aria-selected="false">Найти a</a>
+            </li>
+            <li class="u-tab-item" role="presentation">
+              <a class="u-active-white u-border-2 u-border-active-grey-15 u-border-hover-grey-15 u-border-no-bottom u-button-style u-tab-link u-text-active-black u-text-body-color u-text-hover-black u-tab-link-3" id="link-tab-9b3e" href="#tab-9b3e" role="tab" aria-controls="tab-9b3e" aria-selected="false">Найти m</a>
+            </li>
+          </ul>
+          <div class="u-tab-content">
+            <div class="u-align-left u-container-style u-palette-1-light-3 u-tab-active u-tab-pane u-tab-pane-1" id="tab-14b7" role="tabpanel" aria-labelledby="link-tab-14b7">
+                <iframe name="iframe1" style="position: absolute; left: -9999px;"></iframe>
+                <form action="{% url 'newton2' %}" method="POST" class="u-clearfix u-form-spacing-15 u-inner-form"  style="padding: 15px;" >
+              {% csrf_token %}
+               <label for="nums_comma">Цифр после запятой: </label>
+                    <select title="nums_comma" name="nums_comma" id="nums_comma" >
+                   <option value="10">10</option>
+                   <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+
+                </select>
+              <div class="u-form-horizontal">
+              <input type="text" placeholder="a = "  name="uskorenie" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" >
+                <label for="uskorenie_si">Ед.измерения:</label>
+                <select name="uskorenie_si" id="uskorenie_si">
+                  <option value="m/s^2">m/s^2</option>
+                  <option value="km/h^2">km/h^2</option>
+                </select>
+              </div>
+
+                    <div class="u-form-horizontal">
+                <input type="text" placeholder="m = " name="massa" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" >
+                <label for="massa_si">Ед.измерения:</label>
+                <select name="massa_si" id="massa_si">
+                  <option value="kg">kg</option>
+                  <option value="g">g</option>
+                  <option value="t">t</option>
+                </select>
+                    </div>
+                <input type="text" hidden="hidden" name="self" value='{{ self }}'>
+                <input type="text" hidden="hidden" name="find_mark" value="x">
+                  <input class='u-btn u-btn-submit u-btn-style' type="submit" name="submit" >
+          </form>
+            <h4 class="u-text u-text-2">{{ result_x }} </h4>
+            </div>
+            <div class="u-container-style u-palette-1-light-3 u-tab-pane u-tab-pane-2" id="tab-2917" role="tabpanel" aria-labelledby="link-tab-2917">
+                <iframe name="iframe1" style="position: absolute; left: -9999px;"></iframe>
+                <form action="{% url 'newton2' %}" method="POST" class="u-clearfix u-form-spacing-15 u-inner-form"  style="padding: 15px;" >
+              {% csrf_token %}
+                 <label for="nums_comma">Цифр после запятой: </label>
+                    <select title="nums_comma" name="nums_comma" id="nums_comma">
+                  <option value="10">10</option>
+                   <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+              <div class="u-form-horizontal">
+              <input type="text" placeholder="F = "  name="sila" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" >
+              <label for="sila_si">Ед.измерения:</label>
+                <select name="sila_si" id="sila_si">
+                  <option value="N">N</option>
+                  <option value="kN">kN</option>
+                  <option value="mN">mN</option>
+                </select>
+              </div>
+                    <div class="u-form-horizontal">
+                <input type="text" placeholder="m = " name="massa" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" >
+                <label for="massa_si">Ед.измерения:</label>
+                <select name="massa_si" id="massa_si">
+                  <option value="kg">kg</option>
+                  <option value="g">g</option>
+                  <option value="t">t</option>
+                </select>
+                    </div>
+                <input type="text" hidden="hidden" name="self" value='{{ self }}'>
+                  <input class='u-btn u-btn-submit u-btn-style' type="submit" name="submit" >
+                    <input type="text" hidden="hidden" name="find_mark" value="y">
+          </form>
+            <h4 class="u-text u-text-4">{{ result_y }}</h4>
+            </div>
+            <div class="u-container-style u-palette-1-light-3 u-tab-pane u-tab-pane-3" id="tab-9b3e" role="tabpanel" aria-labelledby="link-tab-9b3e">
+                    <iframe name="iframe1" style="position: absolute; left: -9999px;"></iframe>
+                <form action="{% url 'newton2' %}" method="POST" class="u-clearfix u-form-spacing-15 u-inner-form"  style="padding: 15px;" >
+              {% csrf_token %}
+                    <label for="nums_comma">Цифр после запятой: </label>
+                <select title="nums_comma" name="nums_comma" id="nums_comma">
+                  <option value="10">10</option>
+                   <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+              <div class="u-form-horizontal">
+              <input type="text" placeholder="F = "  name="sila" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" >
+              <label for="sila_si">Ед.измерения:</label>
+                <select name="sila_si" id="sila_si">
+                  <option value="N">N</option>
+                  <option value="kN">kN</option>
+                  <option value="mN">mN</option>
+                </select>
+              </div>
+                    <div class="u-form-horizontal">
+                <input type="text" placeholder="a = " name="uskorenie" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" >
+                <label for="uskorenie_si">Ед.измерения:</label>
+                <select name="uskorenie_si" id="uskorenie_si">
+                  <option value="m/s^2">m/s^2</option>
+                  <option value="km/h^2">km/h^2</option>
+                </select>
+                    </div>
+                <input type="text" hidden="hidden" name="self" value='{{ self }}'>
+                  <input class='u-btn u-btn-submit u-btn-style' type="submit" name="submit" >
+                    <input type="text" hidden="hidden" name="find_mark" value="z">
+          </form>
+            <h4 class="u-text u-text-2">{{ result_z }} </h4>
+
+            </div>
+              <div class="text">{{ db.content }}</div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+    </section>
+
+
+    {% endblock %}
+    
+
+  
+</body>

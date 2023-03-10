@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+{% block settings %}
+{% endblock %}
+
+{% block head %}
+    <style>
+    .u-section-1{
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin-top: 0;
+      background-image: url({% static "phy/images/123.jpg" %});
+      background-position: center;
+      background-size: cover;}
+  </style>
+
+<header class="u-clearfix u-header" id="sec-889e" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-default u-text-1">
+          <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1" href="{% url 'main' %}">сайт для вычислений</a>
+        </p>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-palette-2-base" href="{% url 'main' %}" style="padding: 10px;">О сайте</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'main' %}">О сайте</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-2">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-20 u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-palette-2-base" href="{% url 'main' %}" style="padding: 10px;">Главная</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'main' %}">Главная</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        <a href="{% url 'main' %}" class="u-image u-logo u-image-1" data-image-width="200" data-image-height="200">
+          <img src="{% static 'main/images/logo.png' %}" class="u-logo-image u-logo-image-1">
+        </a>
+      </div></header>
+{% endblock %}
+<input type="checkbox" id="side-checkbox" />
+            <div class="side-panel">
+                <label class="side-button-2" for="side-checkbox">+</label>
+                <div class="side-title">История вычислений:</div>
+                {% for result in history %}
+                 <li><p>{{ result }}</p></li>
+                {% endfor %}
+            <button></button>
+            </div>
+            <div class="side-button-1-wr">
+                <label class="side-button-1" for="side-checkbox">
+                    <div class="side-b side-open">История вычислений</div>
+                    <div class="side-b side-close">Закрыть историю</div>
+                </label>
+            </div>
+{#<input type="checkbox" id="side-checkbox" />#}
+{#            <div class="side-panel2">#}
+{#                <label class="side-button-4" for="side-checkbox">+</label>#}
+{#                <div class="side-title2">Карта сайта:</div>#}
+{#                <p>Map</p>#}
+{#            <button></button>#}
+{#            </div>#}
+{#            <div class="side-button-3-wr">#}
+{#                <label class="side-button-3" for="side-checkbox">#}
+{#                    <div class="side-b side-open2">Карта сайта</div>#}
+{#                    <div class="side-b side-close2">Закрыть карта</div>#}
+{#                </label>#}
+{#            </div>#}
+
+
+
+{% block content %}
+
+{% endblock  %}
+
+{% block footer %}
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-b795"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-custom-font u-font-roboto u-text u-text-default u-text-1">©{{ year }}, Все права защищены</p>
+      </div></footer>
+{% endblock  %}
+</html>

@@ -1,0 +1,42 @@
+{% extends 'phy/base.html' %}
+{% load static %}
+
+{% block settings %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Building Company, INTUITIVE">
+    <meta name="description" content="">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'main/css/nicepage.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'phy/css/mechanics.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'phy/js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'phy/js/nicepage.js' %}" defer=""></script>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="mechanics">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="ru">
+
+    {% endblock %}
+
+ {% block content %}
+    <section class="u-align-center u-clearfix u-image u-section-1" id="sec-acda" data-image-width="900" data-image-height="900">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        {% for f in formulas %}
+
+
+
+          {% endfor %}
+      </div>
+    </section>
+    {% endblock %}
+
+
+</body>

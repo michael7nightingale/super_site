@@ -1,0 +1,73 @@
+{
+    "formulas": {
+
+        "newton2": {
+            "x": {"INFO":  "F", "degree": "1", "formula": "$${F =} {m * a}$$"},
+            "y": {"INFO":  "m", "degree": "1", "formula": "$${a =} {F \\over m}$$"},
+            "z": {"INFO":  "a^_", "degree": "1", "formula": "$${m =} {F \\over a}$$"},
+            "type": "line_xyz"
+        },
+        "impulse": {
+            "x": {"INFO":  "p^_", "degree": "1"},
+            "y": {"INFO":  "m", "degree": "1"},
+            "z": {"INFO":  "\"_V_\"", "degree": "1"},
+            "type": "line_xyz"
+        },
+        "pressure_ground": {
+             "x": {"INFO":  "p", "degree": "1"},
+            "y": {"INFO":  "F", "degree": "1"},
+            "z": {"INFO":  "S", "degree": "1"},
+            "type": "divide_xyz"
+        },
+        "sila_treniya": {
+            "x": "F_tr",
+            "z": "nu",
+            "y": "N",
+            "type": "line_xyz"
+        },
+
+        "pressure_liquid": {
+            "x": {"INFO":  "F", "degree": "1", "formula": "$${F =} {m * g}$$"},
+            "y": {"INFO":  "m", "degree": "1", "formula": "$${m =} {F \\over g}$$"},
+            "z": {"INFO":  "g", "degree": "1", "formula": "$${g =} {F \\over m}$$"},
+            "constants": {
+                "g": "g"
+            },
+            "type": "line_xyz"
+        },
+        "center_acceleration": {
+            "x": {"INFO":  "a^_", "degree": "1", "formula": "$${a =} {V^2 \\over r}$$"},
+            "y": {"INFO":  "_V_", "degree": "2", "formula": "$${V^2 =} {a * r}$$"},
+            "z": {"INFO":  "r", "degree": "1", "formula": "$${r =} {V^2 \\over a}$$"},
+            "type": "divide_xyz"
+        },
+        "sila_tazh": {
+            "x": {"INFO":  "F", "degree": "1", "formula": "$${F =} {m * a}$$"},
+            "y": {"INFO":  "m", "degree": "1", "formula": "$${a =} {F \\over m}$$"},
+            "z": {"INFO":  "g", "degree": "1", "formula": "$${g =} {F \\over a}$$"},
+            "constants": ["g"],
+            "type": "line_xyz"
+        }
+    },
+
+    "literals": {
+        "p": {"name": "pressure", "literal":  "p", "si": {"Pa": 1, "kPa": "10**3", "mPa":  "10**-3"}, "ed": "Pa"},
+        "F": {"name": "sila", "literal": "F", "si": {"N": "1", "kN": "10 ** 3", "mN": "10 ** -3"}, "ed": "N"},
+        "m": {"name": "massa", "literal": "m", "si": {"kg": "1", "g": "10 ** -3", "t": "10 * 3"}, "ed": "kg"},
+        "a^_": {"name": "uskorenie", "literal": "a", "si": {"m/s^2": "1", "km/h^2": "0.00007716049382716"}, "ed": "m/s^2"},
+        "p^_": {"name": "impulse", "literal": "p", "si": {"N": "1", "kN": "10 ** 3", "mN": "10 ** -3"}, "ed": "kg * (m \\over s) "},
+        "_V_": {"name": "speed", "literal": "v", "si": {"m/s": "1", "km/h": "0.00007716049382716"}, "ed": "m/s"},
+        "S": {"name": "square", "literal": "S", "si": {"m^2": "1", "sm^2": "10 ** -4"}, "ed": "m^2"},
+        "nu": {"name":  "coefficient", "si": {"1": "1"}, "ed":  "ed"},
+        "N": {"name": "sila_opory", "literal": "N", "si": {"N": "1", "kN": "10 ** 3", "mN": "10 ** -3"}, "ed": "N"},
+        "F_tr": {"name": "sila_treniya", "literal": "F_тр", "si": {"N": "1", "kN": "10 ** 3", "mN": "10 ** -3"}, "ed": "N"},
+        "h": {"name": "hight", "literal": "h", "si": {"m": "1", "km": "10 ** 3", "sm": "10 ** -3"}, "ed": "m"},
+        "ro": {"name": "density", "literal": "ro", "si": {"kg/m^3": "1", "g/sm^3": "10 ** -3"}, "ed": "kg/m^3"},
+        "r": {"name":  "radius", "literal":  "r", "si": {"m": "1", "km": "10 ** 3", "sm": "10 ** -3"}, "ed": "m"}
+    },
+
+    "constants": {
+        "g": {"name": "free_falling", "literal": "g", "si": {"m/s^2":  "1"}, "value":  "9.8"},
+        "k": {"name":  "boltsman_constant", "literal":  "k", "si": "mol/kg", "value": "1,66 * 10 ** -23"}
+    }
+}

@@ -1,0 +1,84 @@
+{% extends 'phy/base.html' %}
+{% load static %}
+
+{% block settings %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Building Company, INTUITIVE">
+    <meta name="description" content="">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'main/css/nicepage.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'phy/css/mechanics.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'phy/js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'phy/js/nicepage.js' %}" defer=""></script>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+    
+
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="mechanics">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="ru">
+
+    {% endblock %}
+
+ {% block content %}
+    <section class="u-align-center u-clearfix u-image u-section-1" id="sec-acda" data-image-width="900" data-image-height="900">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width u-tabs u-tabs-1">
+          <ul class="u-border-1 u-border-grey-15 u-palette-1-light-2 u-tab-list u-unstyled u-tab-list-1" role="tablist">
+            <li class="u-tab-item" role="presentation">
+              <a class="active u-active-white u-border-2 u-border-active-grey-15 u-border-hover-grey-15 u-border-no-bottom u-button-style u-tab-link u-text-active-black u-text-body-color u-text-hover-black u-tab-link-1" id="link-tab-14b7" href="#tab-14b7" role="tab" aria-controls="tab-14b7" aria-selected="true">Динамика</a>
+            </li>
+            <li class="u-tab-item" role="presentation">
+              <a class="u-active-white u-border-2 u-border-active-grey-15 u-border-hover-grey-15 u-border-no-bottom u-button-style u-tab-link u-text-active-black u-text-body-color u-text-hover-black u-tab-link-2" id="link-tab-2917" href="#tab-2917" role="tab" aria-controls="tab-2917" aria-selected="false">Кинематика</a>
+            </li>
+            <li class="u-tab-item" role="presentation">
+              <a class="u-active-white u-border-2 u-border-active-grey-15 u-border-hover-grey-15 u-border-no-bottom u-button-style u-tab-link u-text-active-black u-text-body-color u-text-hover-black u-tab-link-3" id="link-tab-9b3e" href="#tab-9b3e" role="tab" aria-controls="tab-9b3e" aria-selected="false">О разделе</a>
+            </li>
+          </ul>
+          <div class="u-tab-content">
+              <div class="u-align-left u-container-style u-palette-1-light-3 u-tab-active u-tab-pane u-tab-pane-1" id="tab-14b7" role="tabpanel" aria-labelledby="link-tab-14b7">
+
+                  <div class="grid template-2">
+                {% for f in formulas_dinamics %}
+                <a class="u-border-2 u-border-grey-75 u-image u-image-contain u-image-default u-preserve-proportions u-image-1" href="{% url 'template_formula' f.slug %}">
+
+                <h6 class="">{{ f.formula }}</h6>
+                </a>
+                {% endfor %}
+                </div>
+
+            </div>
+
+
+            <div class="u-container-style u-palette-1-light-3 u-tab-pane u-tab-pane-2" id="tab-2917" role="tabpanel" aria-labelledby="link-tab-2917">
+                <div class="grid template-2">
+                    {% for f in formulas_kinematiks %}
+                    <a class="u-border-2 u-border-grey-75 u-image u-image-contain u-image-default u-preserve-proportions u-image-1" href="{% url 'template_formula' f.slug %}">
+
+                        <h6 class="">{{ f.formula }}</h6>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+              
+            <div class="u-container-style u-palette-1-light-3 u-tab-pane u-tab-pane-3" id="tab-9b3e" role="tabpanel" aria-labelledby="link-tab-9b3e">
+              <div class="u-container-layout u-valign-top u-container-layout-3">
+                <h4 class="u-text u-text-default u-text-4">Be The First To Review This Product!</h4>
+                <p class="u-text u-text-default u-text-5">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <a href="" class="u-btn u-button-style u-btn-2">write product review</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endblock %}
+
+  
+</body>
