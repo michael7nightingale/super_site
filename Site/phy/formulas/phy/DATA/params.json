@@ -47,8 +47,17 @@
             "z": {"INFO":  "g", "degree": "1", "formula": "$${g =} {F \\over a}$$"},
             "constants": ["g"],
             "type": "line_xyz"
-        }
-    },
+        },
+
+        "quantity_heat_difference_temperatures": {
+            "x": {"INFO":  "Q", "degree":  "1", "formula": "$${Q =} {c * m * t}$$"},
+            "y": {"INFO": "c", "degree":  "1", "formula":  "{c =} {Q \\over m * t}$$"},
+            "z": {"INFO": "m", "degree":  "1", "formula":  "{m =} {Q \\over c * t}$$"},
+            "w": {"INFO": "temp", "degree":  "1", "formula":  "{t =} {Q \\over c * m}$$"},
+            "type": "line"
+            }
+        },
+
 
     "literals": {
         "p": {"name": "pressure", "literal":  "p", "si": {"Pa": 1, "kPa": "10**3", "mPa":  "10**-3"}, "ed": "Pa"},
@@ -61,9 +70,13 @@
         "nu": {"name":  "coefficient", "si": {"1": "1"}, "ed":  "ed"},
         "N": {"name": "sila_opory", "literal": "N", "si": {"N": "1", "kN": "10 ** 3", "mN": "10 ** -3"}, "ed": "N"},
         "F_tr": {"name": "sila_treniya", "literal": "F_тр", "si": {"N": "1", "kN": "10 ** 3", "mN": "10 ** -3"}, "ed": "N"},
-        "h": {"name": "hight", "literal": "h", "si": {"m": "1", "km": "10 ** 3", "sm": "10 ** -3"}, "ed": "m"},
+        "h": {"name": "height", "literal": "h", "si": {"m": "1", "km": "10 ** 3", "sm": "10 ** -3"}, "ed": "m"},
         "ro": {"name": "density", "literal": "ro", "si": {"kg/m^3": "1", "g/sm^3": "10 ** -3"}, "ed": "kg/m^3"},
-        "r": {"name":  "radius", "literal":  "r", "si": {"m": "1", "km": "10 ** 3", "sm": "10 ** -3"}, "ed": "m"}
+        "r": {"name":  "radius", "literal":  "r", "si": {"m": "1", "km": "10 ** 3", "sm": "10 ** -3"}, "ed": "m"},
+        "temp": {"name":  "temperature", "literal":  "t", "si":  {"C": "1", "K":  " + 273"}, "ed":  "C"},
+        "Q": {"name":  "quantity_heat", "literal":  "Q", "si":  {"J": "1", "kJ": "10 ** 3", "mJ": "10 ** -3"}, "ed": "J"},
+        "c": {"name": "heat_condensation", "literal": "c", "si": {"J/kg":  "1"}, "ed": "J/kg"}
+
     },
 
     "constants": {

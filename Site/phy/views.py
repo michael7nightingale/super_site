@@ -28,8 +28,8 @@ def emptyData(template_path):
                 return func(*args, **kwargs)
             except MultiValueDictKeyError:
                 request = args[0]
-                linedb = get_object_or_404(Formula, slug=args[1])
-                return render(request, template_path, context={'db': linedb})
+                linedb = get_object_or_404(Formula, slug=kwargs['formula_slug'])
+                return render(request, template_path, context={'db': linedb, 'category': get_object_or_404(CategoryPhy, cat=).category_name})
         return wrapper
     return decorator
 
@@ -98,7 +98,7 @@ class CategoryPhysics(ListView, CommonContextMixin):
 @emptyData(template_path='phy/template1.html')
 def template_formula(request, formula_slug):
     linedb = get_object_or_404(Formula, slug=formula_slug)
-    context = template1.template1(request, linedb)
+    template_builder = getattr(template1, linedb.template_name)
+    context = template_builder(request, linedb)
     context['category'] = get_object_or_404(CategoryPhy, category_name=linedb.cat)
-
     return render(request, 'phy/{}.html'.format(linedb.template_name), context=context)

@@ -15,7 +15,7 @@ def get_params(name: str, args) -> tuple[dict, list]:
     if name in formulas:
         # получаем общие данные имен и тип формулы
         params_common = formulas[name]
-        # print(params_common)
+        print(args)
         # lined_type = formulas[name]["type"]
         # получаем данные по аргументам
         names_for_request = []
@@ -44,8 +44,7 @@ def get_params(name: str, args) -> tuple[dict, list]:
         if "constants" in params_common:
             params["constants"] = params_common['constants']
         else:
-            params['constant'] = None
-        print(names_for_request)
+            pass
         params["type"] = formulas[name]["type"]
         return params, names_for_request
     else:
