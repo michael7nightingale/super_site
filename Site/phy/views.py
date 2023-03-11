@@ -19,21 +19,6 @@ class CommonContextMixin:
         return context
 
 
-# декоратор для открытия формы впервые, без данных
-def emptyData(template_path):
-    def decorator(func):
-        def wrapper(*args, **kwargs):
-            try:
-                # print(123)
-                return func(*args, **kwargs)
-            except MultiValueDictKeyError:
-                request = args[0]
-                linedb = get_object_or_404(Formula, slug=kwargs['formula_slug'])
-                return render(request, template_path, context={'db': linedb, 'category': get_object_or_404(CategoryPhy, cat=).category_name})
-        return wrapper
-    return decorator
-
-
 class PhyMain(TemplateView, CommonContextMixin):
     template_name = "phy/main.html"
     model = Phy
@@ -95,7 +80,6 @@ class CategoryPhysics(ListView, CommonContextMixin):
         return context
 
 
-@emptyData(template_path='phy/template1.html')
 def template_formula(request, formula_slug):
     linedb = get_object_or_404(Formula, slug=formula_slug)
     template_builder = getattr(template1, linedb.template_name)

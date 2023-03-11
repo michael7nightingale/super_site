@@ -10,15 +10,15 @@ constants = data['constants']
 
 
 # получить данные о формуле из json по слагу формулы
-def get_params(name: str, args) -> tuple[dict, list]:
+def get_params(name: str) -> tuple[dict, list]:
     # print('#W$%#$%#$% вызов jsonGetParams 34$%W$%W$% ')
     if name in formulas:
         # получаем общие данные имен и тип формулы
         params_common = formulas[name]
-        print(args)
         # lined_type = formulas[name]["type"]
         # получаем данные по аргументам
         names_for_request = []
+        args = [i for i in params_common.keys() if len(i) == 1]
         # params = data['formulas'][name]
         params = dict(zip(args, (dict() for _ in args)))
         # print(args)
@@ -50,11 +50,8 @@ def get_params(name: str, args) -> tuple[dict, list]:
     else:
         return "Ошибка имени!"
 
-def get_constants(constants_names: dict):
-    for i in constants_names:
-        constants_names[i] = constants[i]
-    return constants_names
 
-# result = get_params('newton2', ('x', 'y', 'z'))
-# print(result)
+def get_constants(params: dict) -> list:
+    return params['constants'] if "constants" in params else []
+
 

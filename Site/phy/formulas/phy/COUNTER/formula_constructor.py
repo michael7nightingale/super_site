@@ -3,7 +3,7 @@ def check_template_data(func):
     def wrapper(*args, **kwargs):
         try:
             return func(*args, **kwargs)
-        except (TypeError, ValueError):
+        except RecursionError:
             return "Ошибка выходных данных"
     return wrapper
 
@@ -23,47 +23,35 @@ def template1(params: dict, nums_comma: str, find_mark: str, num1: str, num2: st
         case 'x':
             if lined_type == "line_xyz":
                     # print(eval(params['y']['INFO']['si'][ed1]))
-                result = round(
-                        (((num1 * eval(params['y']['INFO']['si'][ed1]))**degree1) *
-                        ((num2 * eval(params['z']['INFO']['si'][ed2]))**degree2))**(1/degree_find),
-                        nums_comma)
+                result = (((num1 * eval(params['y']['INFO']['si'][ed1]))**degree1) *
+                        ((num2 * eval(params['z']['INFO']['si'][ed2]))**degree2))**(1/degree_find)
+
                     # response = "$${" + f"{params[find_mark]['literal']}"+"} = {"+f"{num1} {ed1} * {num2} {ed2}" + '} = {' + f"{result}" +'}$$'
             elif lined_type == 'divide_xyz':
-                result = round(
-                        (((num1 * eval(params['y']['INFO']['si'][ed1])) ** degree1) /
-                        ((num2 * eval(params['z']['INFO']['si'][ed2])) ** degree2))**(1/degree_find),
-                        nums_comma)
+                result = (((num1 * eval(params['y']['INFO']['si'][ed1])) ** degree1) /
+                        ((num2 * eval(params['z']['INFO']['si'][ed2])) ** degree2))**(1/degree_find)
         case 'y':
             if lined_type == "line_xyz":
-
-                result = round(
-                        (((num1 * eval(params['x']['INFO']['si'][ed1])) ** degree1) /
-                        ((num2 * eval(params['z']['INFO']['si'][ed2])) ** degree2))**(1/degree_find),
-                        nums_comma)
+                result = (((num1 * eval(params['x']['INFO']['si'][ed1])) ** degree1) /
+                        ((num2 * eval(params['z']['INFO']['si'][ed2])) ** degree2))**(1/degree_find)
             elif lined_type == 'divide_xyz':
-                result = round(
-                        (((num1 * eval(params['x']['INFO']['si'][ed1])) ** degree1) *
-                        ((num2 * eval(params['z']['INFO']['si'][ed2])) ** degree2))**(1/degree_find),
-                        nums_comma)
+                result = (((num1 * eval(params['x']['INFO']['si'][ed1])) ** degree1) *
+                        ((num2 * eval(params['z']['INFO']['si'][ed2])) ** degree2))**(1/degree_find)
         case 'z':
             if lined_type == "line_xyz":
-                result = round(
-                        (((num1 * eval(params['x']['INFO']['si'][ed1])) ** degree1) /
-                        ((num2 * eval(params['y']['INFO']['si'][ed2])) ** degree2))**(1/degree_find),
-                        nums_comma)
+                result = (((num1 * eval(params['x']['INFO']['si'][ed1])) ** degree1) /
+                        ((num2 * eval(params['y']['INFO']['si'][ed2])) ** degree2))**(1/degree_find)
             elif lined_type == 'divide_xyz':
-                result = round(
-                        (((num1 * eval(params['x']['INFO']['si'][ed1])) ** degree1) /
-                        ((num2 * eval(params['y']['INFO']['si'][ed2])) ** degree2))**(1/degree_find),
-                        nums_comma)
+                result = (((num1 * eval(params['x']['INFO']['si'][ed1])) ** degree1) /
+                        ((num2 * eval(params['y']['INFO']['si'][ed2])) ** degree2))**(1/degree_find)
         case _: raise AssertionError('unsupported find_mark for x = y*x')
-    return result
+    return round(result, nums_comma)
 
 
 @check_template_data
 def template2(params: dict, num1, num2, num3, ed1, ed2, ed3, degree1, degree2, degree3, degree_find, find_mark, nums_comma, lined_type) -> int | str:
-    num1, num2, num3, nums_comma = float(num1), float(num2), float(num3), float(nums_comma)
-    degree1, degree2, degree3 = float(degree1), float(degree2), float(degree3)
+    num1, num2, num3, nums_comma = float(num1), float(num2), float(num3), int(nums_comma)
+    degree1, degree2, degree3, degree_find = float(degree1), float(degree2), float(degree3), float(params[find_mark]['degree'])
     match find_mark:
         case "x":
             ed1, ed2, ed3 = params['y']['INFO']['si'][ed1], params['z']['INFO']['si'][ed2], params['w']['INFO']['si'][ed3]
@@ -109,6 +97,7 @@ def template2(params: dict, num1, num2, num3, ed1, ed2, ed3, degree1, degree2, d
                                              ((num3 * eval(ed3)) ** degree3)
                                      )
                              ) ** (1 / degree_find)
+    return round(result, nums_comma)
 
 
 
